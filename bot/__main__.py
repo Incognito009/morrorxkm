@@ -45,8 +45,8 @@ def stats(update, context):
 
 def start(update, context):
     buttons = button_build.ButtonMaker()
-    buttons.buildbutton("Repo", "https://github.com/iamLiquidX/MirLeechX")
-    buttons.buildbutton("Group", "https://t.me/mirrorLeechTelegramBot")
+    buttons.buildbutton("Repo", "")
+    buttons.buildbutton("Group", "")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
@@ -142,9 +142,9 @@ help_string_telegraph = f'''<br>
 <b>/{BotCommands.StatsCommand}</b>: Show Stats of the machine the bot is hosted on
 '''
 help = Telegraph(access_token=telegraph_token).create_page(
-        title='MirLeechX Help',
-        author_name='MirLeechX',
-        author_url='https://github.com/iamLiquidX/MirLeechX',
+        title='Help',
+        author_name='Help',
+        author_url='https://telegram.com',
         html_content=help_string_telegraph,
     )["path"]
 
@@ -215,7 +215,7 @@ def main():
         os.remove(".restartmsg")
     elif OWNER_ID:
         try:
-            text = "<b>Bot Restarted!</b>"
+            text = "<b> </b>"
             bot.sendMessage(chat_id=OWNER_ID, text=text, parse_mode=ParseMode.HTML)
             if AUTHORIZED_CHATS:
                 for i in AUTHORIZED_CHATS:
